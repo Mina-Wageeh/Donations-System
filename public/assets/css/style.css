@@ -1,0 +1,116 @@
+
+.login-logo
+{
+    width: 50px;
+}
+
+.logout-btn
+{
+    background-color: transparent;
+}
+
+.show-table
+{
+    border-bottom: 0;
+}
+
+a
+{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.show-details
+{
+    color : #00ffc4;
+}
+
+.show-details:hover
+{
+    color : #ffffff !important;
+}
+
+.no-action
+{
+    color: #828282;
+}
+
+.my-branch
+{
+    color: yellow;
+}
+
+body::-webkit-scrollbar
+{
+    display: none;
+}
+ .dvd
+ {
+     color: white;
+ }
+
+
+
+.show-table thead
+{
+    border-radius: 20px !important;
+}
+
+
+
+
+.edit-btn
+{
+    color: #249700;
+}
+
+.delete-btn
+{
+    color: #ff0000;
+}
+
+.show-table
+{
+    /*border: 1px white solid;*/
+    /*border-right: 0px transparent solid;*/
+
+
+    width: 100%;
+    text-align: center;
+}
+
+.show-table th
+{
+    border: 1px #FFFFFF8B solid;
+    padding: 10px;
+}
+
+.show-table td
+{
+    border: 1px #FFFFFF8B solid;
+    padding: 10px;
+}
+
+.increment-btn,
+.decrement-btn
+{
+    cursor: pointer;
+    user-select: none;
+}
+
+.label-text
+{
+    font-size: 13px;
+    font-weight: bolder !important;
+}
+
+.show-medicine-price , #medicine_price
+{
+    border-color: #ffdd00 !important;
+}
+
+.total-price
+{
+    color: #ffdd00;
+}
+

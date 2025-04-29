@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+*
+{
+    font-family: "Cairo" , serif;
+    direction: rtl;
+    text-align: right;
+}
+
+body {
+    direction: rtl;
+    text-align: right;
+}
+
+.user-panel .image img
+{
+    box-shadow: none !important;
+}
+
+.nav-item.active>.nav-link
+{
+    background-color: rgba(255, 255, 255, .1);
+}
+
+
+
+.login-card
+{
+    background-color: transparent;
+    border-radius:0!important; ;
+}
+
+
+.auth-card-container label
+{
+    /*font-size: 10px;*/
+    font-weight: 400!important;
+    user-select: none;
+}
+
+
+.auth-card-container .card
+{
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(0deg, #007d00, transparent);
+    animation: borderMove 3s infinite linear;
+    border-radius: 10px;
+    padding: 20px;
+}
+@keyframes borderMove {
+    0% {
+        border-image-source: linear-gradient(0deg, #007d00, transparent);
+        border-radius: 10px;
+    }
+    25% {
+        border-image-source: linear-gradient(90deg, #007d00, transparent);
+        border-radius: 10px;
+    }
+    50% {
+        border-image-source: linear-gradient(180deg, #007d00, transparent);
+        border-radius: 10px;
+    }
+    75% {
+        border-image-source: linear-gradient(270deg, #007d00, transparent);
+        border-radius: 10px;
+    }
+    100% {
+        border-image-source: linear-gradient(360deg, #007d00, transparent);
+        border-radius: 10px;
+    }
+}
+
+
+/*Dashboard*/
+.small-box .inner h3,
+.small-box .inner h4
+{
+    text-align: center;
+}
+
+.aside-devider
+{
+    color: white;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.13);
+    width: 100%;
+    height: 2px;
+}
+
+input[type="checkbox"]
+{
+    border-color: #B2B6C0;
+    /*appearance: none;*/
+    /*-webkit-appearance: none;*/
+    /*-moz-appearance: none;*/
+    border-radius: 50px;
+    transition: 1s;
+}
+
+input[type="checkbox"]:checked
+{
+    background-color: #2FB493;
+    border-color: #2FB493;
+    transition: 1s;
+}
+
+input[type="checkbox"]:focus
+{
+    border-color: #B2B6C0;
+}
+
+.modal-show-img
+{
+    width: 100%;
+    border-radius: 5px;
+}
+
+/*.custom-modal .modal-dialog {*/
+/*    transform: scale(0.7) !important;  !* تصغير الحجم *!*/
+/*    opacity: 0 !important;  !* إخفاء المودال *!*/
+/*    transition: transform 0.3s ease-out, opacity 0.3s ease-out !important;*/
+/*}*/
+
+/*!* عند ظهور المودال *!*/
+/*.custom-modal.show .modal-dialog {*/
+/*    transform: scale(1) !important;  !* تكبير المودال ليصبح بالحجم الطبيعي *!*/
+/*    opacity: 1 !important;  !* جعله مرئي *!*/
+/*}*/
