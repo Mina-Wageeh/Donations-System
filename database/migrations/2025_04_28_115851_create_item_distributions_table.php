@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('item_distributions', function (Blueprint $table) {
+        Schema::create('item_distributions', function (Blueprint $table)
+        {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('institution_id');
+            $table->foreign('institution_id')->references('id')->on('institutions')->onDelete('cascade');
+            $table->unsignedBigInteger('item_id');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
+            $table->integer('quantity')->nullable();
         });
     }
 

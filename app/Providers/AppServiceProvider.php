@@ -6,10 +6,12 @@ use App\Repositories\InstitutionRepository;
 use App\Repositories\GiverRepository;
 use App\Repositories\Interfaces\InstitutionRepositoryInterface;
 use App\Repositories\Interfaces\GiverRepositoryInterface;
+use App\Repositories\Interfaces\ItemDistributionRepositoryInterface;
 use App\Repositories\Interfaces\ItemDonationRepositoryInterface;
 use App\Repositories\Interfaces\ItemRepositoryInterface;
 use App\Repositories\Interfaces\MoneyDistributionRepositoryInterface;
 use App\Repositories\Interfaces\MoneyDonationRepositoryInterface;
+use App\Repositories\ItemDistributionRepository;
 use App\Repositories\ItemDonationRepository;
 use App\Repositories\ItemRepository;
 use App\Repositories\MoneyDistributionRepository;
@@ -19,10 +21,12 @@ use App\Services\GiverService;
 use App\Services\Interfaces\ChurchServiceInterface;
 use App\Services\Interfaces\GiverServiceInterface;
 use App\Services\Interfaces\InstitutionServiceInterface;
+use App\Services\Interfaces\ItemDistributionServiceInterface;
 use App\Services\Interfaces\ItemDonationServiceInterface;
 use App\Services\Interfaces\ItemServiceInterface;
 use App\Services\Interfaces\MoneyDistributionServiceInterface;
 use App\Services\Interfaces\MoneyDonationServiceInterface;
+use App\Services\ItemDistributionService;
 use App\Services\ItemDonationService;
 use App\Services\ItemService;
 use App\Services\MoneyDistributionService;
@@ -39,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ItemServiceInterface::class, ItemService::class);
         $this->app->bind(MoneyDonationServiceInterface::class, MoneyDonationService::class);
         $this->app->bind(MoneyDistributionServiceInterface::class, MoneyDistributionService::class);
+        $this->app->bind(ItemDistributionServiceInterface::class, ItemDistributionService::class);
 
         $this->app->bind(InstitutionRepositoryInterface::class, InstitutionRepository::class);
         $this->app->bind(GiverRepositoryInterface::class, GiverRepository::class);
@@ -46,6 +51,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ItemRepositoryInterface::class, ItemRepository::class);
         $this->app->bind(MoneyDonationRepositoryInterface::class, MoneyDonationRepository::class);
         $this->app->bind(MoneyDistributionRepositoryInterface::class, MoneyDistributionRepository::class);
+        $this->app->bind(ItemDistributionRepositoryInterface::class, ItemDistributionRepository::class);
     }
 
     /**

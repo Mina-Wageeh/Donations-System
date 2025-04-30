@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ItemDistribution extends Model
 {
     use HasFactory;
+
+    public $table = 'item_distributions';
+    public $guarded = [];
+    public $timestamps = false;
 }

@@ -56,6 +56,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                    <a href="{{route('item.distribution.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>توزيعات السلع</p>
+                    </a>
+                </li>
+
 
             </ul>
         </nav>

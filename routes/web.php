@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ItemDistributionController;
 use App\Http\Controllers\Admin\ItemDonationController;
 use App\Http\Controllers\Admin\GiverController;
 use App\Http\Controllers\Admin\ItemController;
@@ -57,6 +58,13 @@ Route::group(['prefix'=>'money-distribution'] , function()
     Route::get('create', [MoneyDistributionController::class, 'create'])->name('money.distribution.create');
     Route::post('store', [MoneyDistributionController::class, 'store'])->name('money.distribution.store');
 
+});
+
+Route::group(['prefix'=>'item-distribution'] , function()
+{
+    Route::get('/', [ItemDistributionController::class, 'index'])->name('item.distribution.index');
+    Route::get('create', [ItemDistributionController::class, 'create'])->name('item.distribution.create');
+    Route::post('store', [ItemDistributionController::class, 'store'])->name('item.distribution.store');
 });
 
 
