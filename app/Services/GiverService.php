@@ -23,6 +23,12 @@ class GiverService implements GiverServiceInterface
        return $this->giverRepository->getAllGivers();
     }
 
+    public function getGiverById($id)
+    {
+        return $this->giverRepository->getGiverById($id);
+    }
+
+
     public function getGiversCount()
     {
         return $this->giverRepository->getGiversCount();
@@ -32,6 +38,11 @@ class GiverService implements GiverServiceInterface
     public function storeGiver(GiverDto $dto)
     {
         $this->giverRepository->storeGiver($dto);
+    }
+
+    public function updateDoctor($dto , $id)
+    {
+        $this->giverRepository->updateDoctor($dto , $id);
     }
 
     public function deleteGiver($id)

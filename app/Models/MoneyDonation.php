@@ -12,9 +12,4 @@ class MoneyDonation extends Model
     public $table = 'money_donations';
     public $guarded= [];
     public $timestamps = false;
-
-    public function giver()
-    {
-        return $this->belongsTo(Giver::class);
-    }
 }

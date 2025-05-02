@@ -25,6 +25,11 @@ class MoneyDonationService implements MoneyDonationServiceInterface
         return $this->moneyDonationRepository->getMoneyDonations();
     }
 
+    public function getMoneyDonationsWithGivers()
+    {
+        return $this->moneyDonationRepository->getMoneyDonationsWithGivers();
+    }
+
     public function getTotalMoneyDonations()
     {
         return $this->moneyDonationRepository->getTotalMoneyDonations();

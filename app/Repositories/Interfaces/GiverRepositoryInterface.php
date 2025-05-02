@@ -15,4 +15,6 @@ interface GiverRepositoryInterface
     public function storeGiver(GiverDto $dto);
 
     public function getGiverById($id);
+
+    public function updateDoctor(GiverDto $dto , $id);
 }

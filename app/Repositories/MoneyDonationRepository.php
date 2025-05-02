@@ -2,10 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Dto\MoneyDonationDto;
 use App\Models\Giver;
 use App\Models\MoneyDonation;
 use App\Repositories\Interfaces\GiverRepositoryInterface;
 use App\Repositories\Interfaces\MoneyDonationRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class MoneyDonationRepository implements MoneyDonationRepositoryInterface
 {
@@ -14,13 +16,22 @@ class MoneyDonationRepository implements MoneyDonationRepositoryInterface
        return MoneyDonation::all();
     }
 
+    public function getMoneyDonationsWithGivers()
+    {
+        return
+        DB::table('money_donations')
+       ->join('givers', 'money_donations.giver_id', '=', 'givers.id')
+       ->select('givers.name as name', 'money_donations.amount as amount')
+       ->get();
+    }
+
     public function getTotalMoneyDonations()
     {
        return MoneyDonation::sum('amount');
     }
 
-    public function StoreMoneyDonation($data)
+    public function StoreMoneyDonation(MoneyDonationDto $dto)
     {
-        MoneyDonation::create($data);
+        MoneyDonation::create($dto->toArray());
     }
 }

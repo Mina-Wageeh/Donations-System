@@ -8,67 +8,75 @@ use App\Http\Controllers\Admin\GiverController;
 use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\Admin\MoneyDistributionController;
 use App\Http\Controllers\Admin\MoneyDonationController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Auth::routes();
 
-Route::group(['prefix'=>'churches'] , function()
+Route::group(['middleware'=>'auth'] , function()
 {
-    Route::get('/', [InstitutionController::class, 'index'])->name('giver.index');
-});
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-Route::group(['prefix'=>'money-donations'] , function()
-{
-    Route::get('/', [MoneyDonationController::class, 'index'])->name('donation.money.index');
-    Route::get('create', [MoneyDonationController::class, 'create'])->name('donation.money.create');
-    Route::post('store', [MoneyDonationController::class, 'store'])->name('donation.money.store');
-});
+    Route::group(['prefix'=>'churches'] , function()
+    {
+        Route::get('/', [InstitutionController::class, 'index'])->name('giver.index');
+    });
 
-Route::group(['prefix'=>'items'] , function()
-{
-    Route::get('/', [ItemController::class, 'index'])->name('item.index');
-    Route::get('create', [ItemController::class, 'create'])->name('item.create');
-    Route::post('store', [ItemController::class, 'store'])->name('item.store');
-});
+    Route::group(['prefix'=>'money-donations'] , function()
+    {
+        Route::get('/', [MoneyDonationController::class, 'index'])->name('donation.money.index');
+        Route::get('create', [MoneyDonationController::class, 'create'])->name('donation.money.create');
+        Route::post('store', [MoneyDonationController::class, 'store'])->name('donation.money.store');
+    });
 
-Route::group(['prefix'=>'items-donations'] , function()
-{
-    Route::get('/', [ItemDonationController::class, 'index'])->name('donation.item.index');
-    Route::get('create', [ItemDonationController::class, 'create'])->name('donation.item.create');
-    Route::post('store', [ItemDonationController::class, 'store'])->name('donation.item.store');
-});
+    Route::group(['prefix'=>'items'] , function()
+    {
+        Route::get('/', [ItemController::class, 'index'])->name('item.index');
+        Route::get('create', [ItemController::class, 'create'])->name('item.create');
+        Route::post('store', [ItemController::class, 'store'])->name('item.store');
+    });
+
+    Route::group(['prefix'=>'items-donations'] , function()
+    {
+        Route::get('/', [ItemDonationController::class, 'index'])->name('donation.item.index');
+        Route::get('create', [ItemDonationController::class, 'create'])->name('donation.item.create');
+        Route::post('store', [ItemDonationController::class, 'store'])->name('donation.item.store');
+    });
 
 
-Route::group(['prefix'=>'givers'] , function()
-{
-    Route::get('/', [GiverController::class, 'index'])->name('giver.index');
-    Route::get('create', [GiverController::class, 'create'])->name('giver.create');
-    Route::post('store', [GiverController::class, 'store'])->name('giver.store');
-    Route::get('edit/{id}', [GiverController::class, 'edit'])->name('giver.edit');
-    Route::post('update/{id}', [GiverController::class, 'update'])->name('giver.update');
-    Route::post('delete', [GiverController::class, 'delete'])->name('giver.delete');
-});
+    Route::group(['prefix'=>'givers'] , function()
+    {
+        Route::get('/', [GiverController::class, 'index'])->name('giver.index');
+        Route::get('create', [GiverController::class, 'create'])->name('giver.create');
+        Route::post('store', [GiverController::class, 'store'])->name('giver.store');
+        Route::get('edit/{id}', [GiverController::class, 'edit'])->name('giver.edit');
+        Route::post('update/{id}', [GiverController::class, 'update'])->name('giver.update');
+        Route::post('delete', [GiverController::class, 'delete'])->name('giver.delete');
+    });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-Route::group(['prefix'=>'money-distribution'] , function()
-{
-    Route::get('/', [MoneyDistributionController::class, 'index'])->name('money.distribution.index');
-    Route::get('create', [MoneyDistributionController::class, 'create'])->name('money.distribution.create');
-    Route::post('store', [MoneyDistributionController::class, 'store'])->name('money.distribution.store');
+    Route::group(['prefix'=>'money-distribution'] , function()
+    {
+        Route::get('/', [MoneyDistributionController::class, 'index'])->name('money.distribution.index');
+        Route::get('create', [MoneyDistributionController::class, 'create'])->name('money.distribution.create');
+        Route::post('store', [MoneyDistributionController::class, 'store'])->name('money.distribution.store');
 
+    });
+
+    Route::group(['prefix'=>'item-distribution'] , function()
+    {
+        Route::get('/', [ItemDistributionController::class, 'index'])->name('item.distribution.index');
+        Route::get('create', [ItemDistributionController::class, 'create'])->name('item.distribution.create');
+        Route::post('store', [ItemDistributionController::class, 'store'])->name('item.distribution.store');
+    });
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
-Route::group(['prefix'=>'item-distribution'] , function()
-{
-    Route::get('/', [ItemDistributionController::class, 'index'])->name('item.distribution.index');
-    Route::get('create', [ItemDistributionController::class, 'create'])->name('item.distribution.create');
-    Route::post('store', [ItemDistributionController::class, 'store'])->name('item.distribution.store');
-});
 
 
 
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

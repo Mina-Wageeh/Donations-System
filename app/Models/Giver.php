@@ -15,16 +15,4 @@ class Giver extends Model
     public $table = 'givers';
     public $guarded = [];
     public $timestamps = false;
-
-
-    public function moneyDonation()
-    {
-        return $this->hasOne(MoneyDonation::class);
-    }
-
-    public function itemDonation()
-    {
-        return $this->hasOne(ItemDonation::class);
-    }
-
 }

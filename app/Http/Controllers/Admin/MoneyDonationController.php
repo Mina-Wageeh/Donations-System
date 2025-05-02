@@ -25,7 +25,8 @@ class MoneyDonationController extends Controller
 
     public function index()
     {
-        $moneyDonations = $this->moneyDonationService->getMoneyDonations();
+//        $moneyDonations = $this->moneyDonationService->getMoneyDonations();
+        $moneyDonations = $this->moneyDonationService->getMoneyDonationsWithGivers();
         $moneyDonationsTotal = $this->moneyDonationService->getTotalMoneyDonations();
 
         return view('dashboard.donation-money.index' , compact('moneyDonations' , 'moneyDonationsTotal'));
@@ -39,11 +40,6 @@ class MoneyDonationController extends Controller
 
     public function store(MoneyDonationRequest $request)
     {
-//        $data =
-//        [
-//            'giver_id' => $request->giver_id,
-//            'amount' => $request->amount,
-//        ];
 
         $dto = $request->getDto();
 

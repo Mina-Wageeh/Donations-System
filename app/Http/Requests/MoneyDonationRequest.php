@@ -26,6 +26,7 @@ class MoneyDonationRequest extends FormRequest
     {
         return
         [
+            'giver_id' => 'required|numeric',
             'amount' => 'required|min:1|numeric',
         ];
     }
@@ -34,7 +35,8 @@ class MoneyDonationRequest extends FormRequest
     {
         $dto = new MoneyDonationDto();
 
-        $dto->setAmount($this->request->get('amount'));
+        $dto->setGiverID($this->request->get('giver_id'))
+            ->setAmount($this->request->get('amount'));
 
         return $dto;
     }

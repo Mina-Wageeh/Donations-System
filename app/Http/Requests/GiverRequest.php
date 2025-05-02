@@ -28,7 +28,8 @@ class GiverRequest extends FormRequest
         [
             'name' => 'required|min:3|max:255|string',
             'address' => 'required|min:5|max:255|string',
-            'phone' => ['required', 'regex:/^01[0-2,5]{1}[0-9]{8}$/'],
+//            'phone' => ['required', 'regex:/^01[0-2,5]{1}[0-9]{8}$/'],
+            'phone' => ['required'],
         ];
     }
 

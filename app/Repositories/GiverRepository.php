@@ -20,14 +20,23 @@ class GiverRepository implements GiverRepositoryInterface
         return Giver::count();
     }
 
-    public function storeGiver(GiverDto $dto): Giver
+    public function storeGiver(GiverDto $dto)
     {
         return Giver::create($dto->toArray());
     }
 
-    public function getGiverById($id): Giver
+    public function getGiverById($id)
     {
         return Giver::find($id);
+    }
+
+    public function updateDoctor(GiverDto $dto , $id)
+    {
+        $giver = $this->getGiverById($id);
+        if($giver)
+        {
+            $giver->update($dto->toArray());
+        }
     }
 
 }

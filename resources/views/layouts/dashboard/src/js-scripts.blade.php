@@ -32,3 +32,9 @@
 <script src="{{asset('dashboard/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('dashboard/dist/js/demo.js')}}"></script>
+
+
+<!-- End of <body> -->
+<script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@4.0.1/dist/js/multi-select-tag.min.js"></script>
+
+<script src="{{asset('assets/js/custom.js')}}"></script>

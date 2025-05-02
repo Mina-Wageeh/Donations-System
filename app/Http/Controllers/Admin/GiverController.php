@@ -13,7 +13,7 @@ class GiverController extends Controller
 {
     public $giverService;
 
-    public function __construct(GiverService $giverService)
+    public function __construct(GiverServiceInterface $giverService)
     {
         $this->giverService = $giverService;
     }
@@ -31,9 +31,24 @@ class GiverController extends Controller
 
     public function store(GiverRequest $request)
     {
-       $this->giverService->storeGiver($request->getDto());
+        $dto = $request->getDto();
+        $this->giverService->storeGiver($dto);
+        return redirect()->route('giver.index');
+    }
 
-       return redirect()->route('giver.index');
+    public function edit($id)
+    {
+        $giver = $this->giverService->getGiverById($id);
+        return view('dashboard.givers.edit' ,compact('giver'));
+    }
+
+    public function update(GiverRequest $request , $id)
+    {
+        $dto = $request->getDto();
+
+        $this->giverService->updateDoctor($dto ,$id);
+
+        return redirect() -> route('giver.index');
     }
 
     public function delete(Request $request)

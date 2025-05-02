@@ -14,7 +14,7 @@
 
                     <div class="mb-3">
                         <label>المتبرع</label>
-                        <select class="custom-select" name="giver_id">
+                        <select class="custom-select" name="giver_id" id="giver_id_multi_select">
                             @foreach($givers as $giver)
                                 <option selected class="text-muted" value="{{$giver->id}}">{{$giver->name}}</option>
                             @endforeach
@@ -42,5 +42,11 @@
         </div>
     </div>
 </div>
+
+
+
+@endsection
+
+@section('scripts')
 
 @endsection

@@ -4,11 +4,13 @@
 namespace App\Repositories\Interfaces;
 
 
-//institution
+use App\Dto\MoneyDonationDto;
+
 interface MoneyDonationRepositoryInterface
 {
     public function getMoneyDonations();
+    public function getMoneyDonationsWithGivers();
     public function getTotalMoneyDonations();
-    public function StoreMoneyDonation($data);
+    public function StoreMoneyDonation(MoneyDonationDto $dto);
 
 }

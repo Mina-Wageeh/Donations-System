@@ -12,9 +12,4 @@ class ItemDonation extends Model
     public $table = 'item_donations';
     public $guarded= [];
     public $timestamps = false;
-
-    public function giver()
-    {
-        return $this->belongsTo(Giver::class);
-    }
 }

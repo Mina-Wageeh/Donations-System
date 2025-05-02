@@ -34,4 +34,9 @@ class DashboardController extends Controller
         $totalMoneyDonations = $this->moneyDonationsService->getTotalMoneyDonations();
         return view('dashboard.index' , compact(['institutionsCount' , 'giversCount' , 'totalMoneyDonations']));
     }
+
+    public function redirectToDashboard()
+    {
+       return redirect()->route('dashboard');
+    }
 }

@@ -12,17 +12,17 @@
                     @csrf
                     <div class="mb-3">
                         <label>اسم المتبرع</label>
-                        <input name="giver_name" type="text" class="form-control" id="" placeholder="اسم المتبرع">
+                        <input name="name" type="text" class="form-control" id="" placeholder="اسم المتبرع">
                     </div>
 
                     <div class="mb-3">
                         <label>عنوان المتبرع</label>
-                        <input name="giver_address" type="text" class="form-control" id="" placeholder="عنوان المتبرع">
+                        <input name="address" type="text" class="form-control" id="" placeholder="عنوان المتبرع">
                     </div>
 
                     <div class="mb-3">
                         <label>رقم التليفون</label>
-                        <input name="giver_phone" type="text" class="form-control" id="" placeholder="رقم التليفون">
+                        <input name="phone" type="text" class="form-control" id="" placeholder="رقم التليفون">
                     </div>
 
                     <button type="submit" class="btn btn-success col-md-12">اضافة</button>

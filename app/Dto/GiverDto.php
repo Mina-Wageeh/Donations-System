@@ -6,41 +6,38 @@ namespace App\Dto;
 
 class GiverDto
 {
-    private string $name;
-    private string $address;
-    private string $phone;
+    private $name;
+    private $address;
+    private $phone;
 
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName($name): self
     {
         $this->name = $name;
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getAddress()
     {
         return $this->address;
     }
 
-
-    public function setAddress(string $address): self
+    public function setAddress($address): self
     {
         $this->address = $address;
         return $this;
     }
 
-
-    public function getPhone(): string
+    public function getPhone()
     {
         return $this->phone;
     }
 
-
-    public function setPhone(string $phone): self
+    public function setPhone($phone): self
     {
         $this->phone = $phone;
         return $this;
@@ -51,8 +48,10 @@ class GiverDto
         return
         [
             'name' => $this->getName(),
-            'phone' => $this->getPhone(),
             'address' => $this->getAddress(),
+            'phone' => $this->getPhone(),
         ];
     }
+
+
 }

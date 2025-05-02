@@ -6,17 +6,19 @@
                 <table class="table show-table text-center">
                     <thead>
                     <tr>
+                        <th class="col-2">المتبرع</th>
                         <th class="col-2">المبلغ</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($moneyDonations as $moneyDonation)
                     <tr>
+                        <td>{{$moneyDonation->name ?? '-'}}</td>
                         <td>{{$moneyDonation->amount ?? '-'}}</td>
                     </tr>
                     @endforeach
                     <tr>
-                        <td class="bg-gradient-gray">{{$moneyDonationsTotal}}</td>
+                        <td class="bg-gradient-gray" colspan="2">{{$moneyDonationsTotal}}</td>
                     </tr>
                     </tbody>
                 </table>
