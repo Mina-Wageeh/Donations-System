@@ -27,7 +27,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h4>عدد الكنائس</h4>
+                <h4>عدد المؤسسات</h4>
                 <h3>{{$institutionsCount}}</h3>
               </div>
               <a href="#" class="small-box-footer">المزيد</a>

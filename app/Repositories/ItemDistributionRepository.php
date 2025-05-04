@@ -20,6 +20,14 @@ class ItemDistributionRepository implements ItemDistributionRepositoryInterface
         return ItemDistribution::get();
     }
 
+    public function getMoneyDonationsWithGivers()
+    {
+        return DB::table('money_donations')
+                ->join('givers', 'money_donations.giver_id', '=', 'givers.id')
+                ->select('givers.name as name', 'money_donations.amount as amount')
+                ->get();
+    }
+
     public function storeItemDistribution(ItemDistributionDto $dto)
     {
         ItemDistribution::create($dto->toArray());

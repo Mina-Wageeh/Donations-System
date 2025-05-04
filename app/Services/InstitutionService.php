@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Dto\InstitutionDto;
 use App\Models\Institution;
 use App\Repositories\InstitutionRepository;
 use App\Repositories\GiverRepository;
@@ -25,10 +26,29 @@ class InstitutionService implements InstitutionServiceInterface
         return $this->institutionRepository->getInstitutions();
     }
 
-    //decorator
+    public function getInstitutionByID($id)
+    {
+        return $this->institutionRepository->getInstitutionByID($id);
+    }
+
     public function getInstitutionsCount()
     {
         return $this->institutionRepository->getInstitutionsCount();
+    }
+
+    public function storeInstitution(InstitutionDto $dto)
+    {
+        $this->institutionRepository->storeInstitution($dto);
+    }
+
+    public function updateInstitution(InstitutionDto $dto , $id)
+    {
+        $this->institutionRepository->updateInstitution($dto , $id);
+    }
+
+    public function deleteInstitution($id)
+    {
+        $this->institutionRepository->deleteInstitution($id);
     }
 
 }

@@ -22,6 +22,13 @@
             <ul class="nav nav-pills nav-sidebar flex-column pr-0" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                    <a href="{{route('institution.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>المؤسسات</p>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
                     <a href="{{route('giver.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>المتبرعين</p>
@@ -29,16 +36,16 @@
                 </li>
 
                 <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
-                    <a href="{{route('donation.money.index')}}" class="nav-link">
+                    <a href="{{route('item.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>التبرعات المالية</p>
+                        <p>السلع</p>
                     </a>
                 </li>
 
                 <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
-                    <a href="{{route('item.index')}}" class="nav-link">
+                    <a href="{{route('donation.money.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>السلع</p>
+                        <p>التبرعات المالية</p>
                     </a>
                 </li>
 

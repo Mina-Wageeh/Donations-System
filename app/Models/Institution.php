@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Institution extends Model
 {
     use HasFactory;
+
+    public $table = 'institutions';
+    public $guarded = [];
     public $timestamps = false;
 
 

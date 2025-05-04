@@ -18,9 +18,14 @@ Route::group(['middleware'=>'auth'] , function()
 {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-    Route::group(['prefix'=>'churches'] , function()
+    Route::group(['prefix'=>'institutions'] , function()
     {
-        Route::get('/', [InstitutionController::class, 'index'])->name('giver.index');
+        Route::get('/', [InstitutionController::class, 'index'])->name('institution.index');
+        Route::get('/create', [InstitutionController::class, 'create'])->name('institution.create');
+        Route::post('/store', [InstitutionController::class, 'store'])->name('institution.store');
+        Route::get('/edit/{id}', [InstitutionController::class, 'edit'])->name('institution.edit');
+        Route::post('/update/{id}', [InstitutionController::class, 'update'])->name('institution.update');
+        Route::post('/delete', [InstitutionController::class, 'delete'])->name('institution.delete');
     });
 
     Route::group(['prefix'=>'money-donations'] , function()
