@@ -27,7 +27,7 @@ class InstitutionRequest extends FormRequest
         return
         [
             'name' => 'required|min:3|max:255|string',
-            'location' => 'required|min:5|max:255|string',
+            'location' => 'required|min:3|max:255|string',
         ];
     }
 

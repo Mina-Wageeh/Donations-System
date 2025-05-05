@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\EmailController;
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ItemDistributionController;
@@ -16,7 +17,11 @@ Auth::routes();
 
 Route::group(['middleware'=>'auth'] , function()
 {
-    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+    Route::group(['prefix'=>'/'] , function()
+    {
+        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+    });
 
     Route::group(['prefix'=>'institutions'] , function()
     {
@@ -28,11 +33,14 @@ Route::group(['middleware'=>'auth'] , function()
         Route::post('/delete', [InstitutionController::class, 'delete'])->name('institution.delete');
     });
 
-    Route::group(['prefix'=>'money-donations'] , function()
+    Route::group(['prefix'=>'givers'] , function()
     {
-        Route::get('/', [MoneyDonationController::class, 'index'])->name('donation.money.index');
-        Route::get('create', [MoneyDonationController::class, 'create'])->name('donation.money.create');
-        Route::post('store', [MoneyDonationController::class, 'store'])->name('donation.money.store');
+        Route::get('/', [GiverController::class, 'index'])->name('giver.index');
+        Route::get('create', [GiverController::class, 'create'])->name('giver.create');
+        Route::post('store', [GiverController::class, 'store'])->name('giver.store');
+        Route::get('edit/{id}', [GiverController::class, 'edit'])->name('giver.edit');
+        Route::post('update/{id}', [GiverController::class, 'update'])->name('giver.update');
+        Route::post('delete', [GiverController::class, 'delete'])->name('giver.delete');
     });
 
     Route::group(['prefix'=>'items'] , function()
@@ -40,6 +48,13 @@ Route::group(['middleware'=>'auth'] , function()
         Route::get('/', [ItemController::class, 'index'])->name('item.index');
         Route::get('create', [ItemController::class, 'create'])->name('item.create');
         Route::post('store', [ItemController::class, 'store'])->name('item.store');
+    });
+
+    Route::group(['prefix'=>'money-donations'] , function()
+    {
+        Route::get('/', [MoneyDonationController::class, 'index'])->name('donation.money.index');
+        Route::get('create', [MoneyDonationController::class, 'create'])->name('donation.money.create');
+        Route::post('store', [MoneyDonationController::class, 'store'])->name('donation.money.store');
     });
 
     Route::group(['prefix'=>'items-donations'] , function()
@@ -50,15 +65,6 @@ Route::group(['middleware'=>'auth'] , function()
     });
 
 
-    Route::group(['prefix'=>'givers'] , function()
-    {
-        Route::get('/', [GiverController::class, 'index'])->name('giver.index');
-        Route::get('create', [GiverController::class, 'create'])->name('giver.create');
-        Route::post('store', [GiverController::class, 'store'])->name('giver.store');
-        Route::get('edit/{id}', [GiverController::class, 'edit'])->name('giver.edit');
-        Route::post('update/{id}', [GiverController::class, 'update'])->name('giver.update');
-        Route::post('delete', [GiverController::class, 'delete'])->name('giver.delete');
-    });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -81,6 +87,7 @@ Route::group(['middleware'=>'auth'] , function()
 });
 
 
+Route::get('/send-email', [EmailController::class, 'send'])->name('logout');
 
 
 

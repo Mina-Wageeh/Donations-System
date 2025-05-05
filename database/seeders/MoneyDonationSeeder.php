@@ -17,6 +17,12 @@ class MoneyDonationSeeder extends Seeder
     {
         MoneyDonation::create
         ([
+            'giver_id' =>2,
+            'amount' =>5000,
+        ]);
+
+        MoneyDonation::create
+        ([
             'giver_id' =>4,
             'amount' =>2000,
         ]);

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -20,6 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('item_id');
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
             $table->integer('quantity')->nullable();
+            $table->date('creation_date')->default(DB::raw('CURRENT_DATE'));;
+            $table->time('creation_time')->default(DB::raw('CURRENT_TIME'));;
         });
     }
 
