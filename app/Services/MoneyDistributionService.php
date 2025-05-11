@@ -23,10 +23,18 @@ class MoneyDistributionService implements MoneyDistributionServiceInterface
         $this->moneyDistributionRepository = $moneyDistributionRepository;
     }
 
+    public function getMoneyDistributionsWithInstitutions()
+    {
+        return $this->moneyDistributionRepository->getMoneyDistributionsWithInstitutions();
+    }
+
     public function StoreMoneyDistribution(MoneyDistributionDto $dto)
     {
         $this->moneyDistributionRepository->StoreMoneyDistribution($dto);
     }
 
-
+    public function getTotalMoneyDistributions()
+    {
+        return $this->moneyDistributionRepository->getTotalMoneyDistributions();
+    }
 }

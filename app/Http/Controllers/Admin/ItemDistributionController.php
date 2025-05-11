@@ -23,10 +23,10 @@ class ItemDistributionController extends Controller
         $this->itemService = $itemService;
     }
 
-
     public function index()
     {
-        return view('dashboard.item-distribution.index');
+        $itemDistributions = $this->itemDistributionService->getItemDistributionsWithInstitutions();
+        return view('dashboard.item-distribution.index' , compact('itemDistributions'));
     }
 
     public function create()
@@ -41,6 +41,14 @@ class ItemDistributionController extends Controller
         $dto = $request->getDto();
 
         $this->itemDistributionService->StoreItemDistribution($dto);
+
+        $item = $this->itemService->getItemByID($request->item_id);
+        $org = $item->quantity;
+
+        $item->update
+        ([
+            'quantity' => $org - $request->quantity,
+        ]);
 
         return redirect()->route('item.distribution.index');
     }

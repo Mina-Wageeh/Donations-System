@@ -2,70 +2,61 @@
     <!-- Brand Logo -->
     <a href="" class="brand-link">
         <img src="{{asset('dashboard/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"></span>
+        <span class="brand-text font-weight-bold"></span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-{{--        <div class="user-panel mt-3 pb-3 mb-3 d-flex">--}}
-{{--            <div class="image">--}}
-{{--                <img src="{{asset('dashboard/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">--}}
-{{--            </div>--}}
-{{--            <div class="info">--}}
-{{--                <a href="#" class="d-block">مينا وجيه</a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column pr-0" data-widget="treeview" role="menu" data-accordion="false">
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('institutions') || request()->is('institutions/*') ? 'active' : '' }}">
                     <a href="{{route('institution.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
                         <p>المؤسسات</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('givers') || request()->is('givers/*') ? 'active' : '' }}">
                     <a href="{{route('giver.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
                         <p>المتبرعين</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('items') || request()->is('items/*') ? 'active' : '' }}">
                     <a href="{{route('item.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>السلع</p>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
+                        <p> مخزن السلع</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('money-donations') || request()->is('money-donations/*') ? 'active' : '' }}">
                     <a href="{{route('donation.money.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
                         <p>التبرعات المالية</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('items-donations') || request()->is('items-donations/*') ? 'active' : '' }}">
                     <a href="{{route('donation.item.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
                         <p>تبرعات السلع</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('money-distribution') || request()->is('money-distribution/*') ? 'active' : '' }}">
                     <a href="{{route('money.distribution.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
                         <p>التوزيعات المالية</p>
                     </a>
                 </li>
 
-                <li class="nav-item {{ request()->is('*users*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->is('item-distribution') || request()->is('item-distribution/*') ? 'active' : '' }}">
                     <a href="{{route('item.distribution.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                        <img src="{{asset('assets/imgs/icons/arrow.png')}}" class="aside-list-icon">
                         <p>توزيعات السلع</p>
                     </a>
                 </li>

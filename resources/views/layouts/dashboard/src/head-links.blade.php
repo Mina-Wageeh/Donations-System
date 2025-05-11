@@ -23,14 +23,15 @@
 <!-- summernote -->
 <link rel="stylesheet" href="{{asset('dashboard/plugins/summernote/summernote-bs4.min.css')}}">
 
-{{--<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.9/dist/css/bootstrap.min.css" rel="stylesheet">--}}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.9/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 {{--Multi Select--}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@4.0.1/dist/css/multi-select-tag.min.css">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+
 

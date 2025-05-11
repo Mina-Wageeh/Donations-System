@@ -6,13 +6,7 @@
         <div class="row mb-2 d-flex justify-content-between">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">لوحة التحكم</h1>
-          </div><!-- /.col -->
-{{--          <div class="col-sm-6">--}}
-{{--            <ol class="breadcrumb float-sm-right">--}}
-{{--              <li class="breadcrumb-item"><a href="#">Home</a></li>--}}
-{{--              <li class="breadcrumb-item active">Dashboard</li>--}}
-{{--            </ol>--}}
-{{--          </div>--}}
+          </div>
         </div>
       </div>
     </div>
@@ -23,16 +17,16 @@
       <div class="container-fluid">
         <div class="row">
 
-          <div class="col-lg-4 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h4>عدد المؤسسات</h4>
-                <h3>{{$institutionsCount}}</h3>
-              </div>
-              <a href="#" class="small-box-footer">المزيد</a>
+            <div class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                  <div class="inner">
+                    <h4>عدد المؤسسات</h4>
+                    <h3>{{$institutionsCount}}</h3>
+                  </div>
+                  <a href="#" class="small-box-footer">المزيد</a>
+                </div>
             </div>
-          </div>
 
             <div class="col-lg-4 col-6">
                 <!-- small box -->
@@ -49,13 +43,46 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h4>اجمالي مبالغ التبرعات</h4>
+                        <h4>عدد السلع</h4>
+                        <h3>{{$giversCount}}</h3>
+                    </div>
+                    <a href="#" class="small-box-footer">المزيد</a>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h4>اجمالي التبرعات المالية</h4>
                         <h3>{{$totalMoneyDonations}}</h3>
                     </div>
                     <a href="#" class="small-box-footer">المزيد</a>
                 </div>
             </div>
 
+            <div class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h4>اجمالي التوزيعات المالية</h4>
+                        <h3>{{$totalMoneyDistributions}}</h3>
+                    </div>
+                    <a href="#" class="small-box-footer">المزيد</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h4>الميزانية الحالية</h4>
+                        <h3>{{$totalMoneyDonations - $totalMoneyDistributions}}</h3>
+                    </div>
+                    <a href="#" class="small-box-footer">المزيد</a>
+                </div>
+            </div>
 
         </div>
       </div>

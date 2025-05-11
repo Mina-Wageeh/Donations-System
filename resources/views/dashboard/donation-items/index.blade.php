@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <div class="content">
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center mb-3">
-                <a href="{{route('donation.item.create')}}" type="button" class="btn btn-success rounded w-100 col-12">اضافة</a>
-            </div>
-            @include('dashboard.donation-items.show')
+<div class="content">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center mb-3">
+            <a href="{{route('donation.item.create')}}" type="button" class="btn btn-success rounded w-100 col-12">اضافة تبرع بسلعة</a>
         </div>
+        @include('dashboard.donation-items.show')
     </div>
+</div>
 
 @endsection
 

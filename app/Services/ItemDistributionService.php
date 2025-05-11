@@ -31,6 +31,11 @@ class ItemDistributionService implements ItemDistributionServiceInterface
         return $this->itemDistributionRepository->getItemDistributions();
     }
 
+    public function getItemDistributionsWithInstitutions()
+    {
+        return $this->itemDistributionRepository->getItemDistributionsWithInstitutions();
+    }
+
     public function storeItemDistribution(ItemDistributionDto $dto)
     {
         $this->itemDistributionRepository->storeItemDistribution($dto);

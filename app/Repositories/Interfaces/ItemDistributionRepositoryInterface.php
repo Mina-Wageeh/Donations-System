@@ -9,5 +9,8 @@ use App\Dto\MoneyDistributionDto;
 interface ItemDistributionRepositoryInterface
 {
     public function getItemDistributions();
+
+    public function getItemDistributionsWithInstitutions();
+
     public function storeItemDistribution(ItemDistributionDto $dto);
 }

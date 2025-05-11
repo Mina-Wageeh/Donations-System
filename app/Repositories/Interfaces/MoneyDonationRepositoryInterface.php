@@ -12,5 +12,6 @@ interface MoneyDonationRepositoryInterface
     public function getMoneyDonationsWithGivers();
     public function getTotalMoneyDonations();
     public function StoreMoneyDonation(MoneyDonationDto $dto);
+    public function moneyDonationsCountInSpecificDuration($duration);
 
 }

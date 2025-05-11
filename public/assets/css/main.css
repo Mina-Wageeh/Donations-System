@@ -127,3 +127,42 @@ input[type="checkbox"]:focus
 /*    transform: scale(1) !important;  !* تكبير المودال ليصبح بالحجم الطبيعي *!*/
 /*    opacity: 1 !important;  !* جعله مرئي *!*/
 /*}*/
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: auto;
+    left: 10px;
+    top: 10px;
+}
+
+.select2-container .select2-selection--single
+{
+    height: unset !important;
+}
+
+
+.select2-results__options::-webkit-scrollbar {
+    width: 6px;
+}
+
+.select2-results__options::-webkit-scrollbar-thumb {
+    background-color: #00725f;
+    border-radius: 3px;
+}
+
+
+
+.navbar-expand>.container,
+.navbar-expand>.container-fluid,
+.navbar-expand>.container-lg,
+.navbar-expand>.container-md,
+.navbar-expand>.container-sm,
+.navbar-expand>.container-xl
+{
+    padding-right: 18px;
+    padding-left: 18px;
+}
+
+.aside-list-icon
+{
+    width: 25px;
+}

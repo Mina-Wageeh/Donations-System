@@ -16,8 +16,10 @@ use App\Repositories\ItemDonationRepository;
 use App\Repositories\ItemRepository;
 use App\Repositories\MoneyDistributionRepository;
 use App\Repositories\MoneyDonationRepository;
+use App\Services\CheckDonationsService;
 use App\Services\InstitutionService;
 use App\Services\GiverService;
+use App\Services\Interfaces\CheckDonationsServiceInterface;
 use App\Services\Interfaces\ChurchServiceInterface;
 use App\Services\Interfaces\GiverServiceInterface;
 use App\Services\Interfaces\InstitutionServiceInterface;
@@ -26,6 +28,7 @@ use App\Services\Interfaces\ItemDonationServiceInterface;
 use App\Services\Interfaces\ItemServiceInterface;
 use App\Services\Interfaces\MoneyDistributionServiceInterface;
 use App\Services\Interfaces\MoneyDonationServiceInterface;
+use App\Services\Interfaces\NotificationServiceInterface;
 use App\Services\ItemDistributionService;
 use App\Services\ItemDonationService;
 use App\Services\ItemService;
@@ -44,6 +47,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(MoneyDonationServiceInterface::class, MoneyDonationService::class);
         $this->app->bind(MoneyDistributionServiceInterface::class, MoneyDistributionService::class);
         $this->app->bind(ItemDistributionServiceInterface::class, ItemDistributionService::class);
+        $this->app->bind(CheckDonationsServiceInterface::class, CheckDonationsService::class);
+        $this->app->bind(NotificationServiceInterface::class, NotificationService::class);
 
         $this->app->bind(InstitutionRepositoryInterface::class, InstitutionRepository::class);
         $this->app->bind(GiverRepositoryInterface::class, GiverRepository::class);

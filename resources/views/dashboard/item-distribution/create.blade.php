@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h3 class="text-center mb-3">قم بمنح سلعة الي مؤسسة</h3>
+                <h3 class="text-center mb-3">تحويل سلعة الي مؤسسة</h3>
                 <form  method="POST" action="{{route('item.distribution.store')}}" enctype="multipart/form-data" class="gy-3 gx-2">
 
                     @csrf

@@ -19,4 +19,9 @@ class ItemRepository implements ItemRepositoryInterface
         Item::create($data);
     }
 
+    public function getItemByID($id)
+    {
+        return Item::find($id);
+    }
+
 }

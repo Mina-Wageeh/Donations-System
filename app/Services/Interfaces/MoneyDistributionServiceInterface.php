@@ -9,5 +9,9 @@ use App\Dto\MoneyDonationDto;
 
 interface MoneyDistributionServiceInterface
 {
+    public function getMoneyDistributionsWithInstitutions();
+
     public function StoreMoneyDistribution(MoneyDistributionDto $dto);
+
+    public function getTotalMoneyDistributions();
 }

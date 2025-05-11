@@ -4,6 +4,7 @@
 namespace App\Services;
 
 
+use App\Dto\ItemDonationDto;
 use App\Models\ItemDonation;
 use App\Repositories\Interfaces\ItemDonationRepositoryInterface;
 use App\Repositories\ItemDonationRepository;
@@ -24,8 +25,19 @@ class ItemDonationService implements ItemDonationServiceInterface
         return $this->itemDonationRepository->getItemDonations();
     }
 
-    public function storeItemDonation($data)
+    public function getMoneyDonationsWithGivers()
     {
-        $this->itemDonationRepository->storeItemDonation($data);
+        return $this->itemDonationRepository->getMoneyDonationsWithGivers();
     }
+
+    public function storeItemDonation(ItemDonationDto $dto)
+    {
+        $this->itemDonationRepository->storeItemDonation($dto);
+    }
+
+    public function itemDonationsCountInSpecificDuration($duration)
+    {
+        return $this->itemDonationRepository->itemDonationsCountInSpecificDuration($duration);
+    }
+
 }

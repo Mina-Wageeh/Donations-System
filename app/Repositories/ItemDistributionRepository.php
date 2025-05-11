@@ -12,6 +12,7 @@ use App\Repositories\Interfaces\GiverRepositoryInterface;
 use App\Repositories\Interfaces\ItemDistributionRepositoryInterface;
 use App\Repositories\Interfaces\MoneyDistributionRepositoryInterface;
 use App\Repositories\Interfaces\MoneyDonationRepositoryInterface;
+use Illuminate\Support\Facades\DB;
 
 class ItemDistributionRepository implements ItemDistributionRepositoryInterface
 {
@@ -20,16 +21,23 @@ class ItemDistributionRepository implements ItemDistributionRepositoryInterface
         return ItemDistribution::get();
     }
 
-    public function getMoneyDonationsWithGivers()
+    public function getItemDistributionsWithInstitutions()
     {
-        return DB::table('money_donations')
-                ->join('givers', 'money_donations.giver_id', '=', 'givers.id')
-                ->select('givers.name as name', 'money_donations.amount as amount')
-                ->get();
+        return DB::table('item_distributions')
+            ->join('institutions', 'item_distributions.institution_id', '=', 'institutions.id')
+            ->join('items', 'item_distributions.item_id', '=', 'items.id')
+            ->select
+            (
+                'institutions.name as institution_name',
+                'items.name as item_name',
+                'item_distributions.quantity as item_quantity',
+            )
+            ->get();
     }
 
     public function storeItemDistribution(ItemDistributionDto $dto)
     {
         ItemDistribution::create($dto->toArray());
     }
+
 }

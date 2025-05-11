@@ -12,10 +12,11 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label>المتبرع</label>
-                        <select class="custom-select" name="giver_id">
+                        <label for="giver-select">المتبرع</label>
+
+                        <select class="form-control select2" name="giver_id" id="giver-select">
                             @foreach($givers as $giver)
-                                <option selected class="text-muted" value="{{$giver->id}}">{{$giver->name}}</option>
+                                <option value="{{$giver->id}}">{{$giver->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -33,4 +34,24 @@
     </div>
 </div>
 
+@endsection
+
+
+@section('scripts')
+    <script>
+        $(document).ready(function()
+        {
+            $('.select2').select2
+            ({
+                dir: "rtl", // لو الموقع عربي
+                allowClear: false
+            });
+
+            $('.select2').on('select2:open', function ()
+            {
+                let searchField = $('.select2-container--open .select2-search__field');
+                searchField.attr('placeholder', 'ابحث هنا...');
+            });
+        });
+    </script>
 @endsection

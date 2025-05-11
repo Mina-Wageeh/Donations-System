@@ -30,4 +30,9 @@ class ItemService implements ItemServiceInterface
         $this->itemRepository->storeItem($data);
     }
 
+    public function getItemByID($id)
+    {
+        return $this->itemRepository->getItemByID($id);
+    }
+
 }

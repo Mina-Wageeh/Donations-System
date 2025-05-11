@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h3 class="text-center mb-3">اضافة سلعة جديدة</h3>
+                <h3 class="text-center mb-3">اضافة تبرع بسلعة</h3>
                 <form  method="POST" action="{{route('donation.item.store')}}" enctype="multipart/form-data" class="gy-3 gx-2">
 
                     @csrf

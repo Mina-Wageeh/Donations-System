@@ -1,23 +1,24 @@
 <div class="row d-flex justify-content-center">
     <div class="col-12">
+        <input type="text" id="giver-search" class="form-control mb-3" placeholder="بحث">
         <div class="card">
             <div class="card-body table-responsive p-0">
-{{--                <table class="table text-nowrap text-center">--}}
                 <table class="table show-table text-center">
                     <thead>
                     <tr>
-                        <th class="col-2">المبلغ</th>
+                        <th class="col-2">المؤسسة التي تم التحويل لها</th>
+                        <th class="col-2">السلعة</th>
+                        <th class="col-2">الكمية</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($moneyDonations as $moneyDonation)
+                    @foreach($itemDistributions as $itemDistribution)
                     <tr>
-                        <td>{{$moneyDonation->amount ?? '-'}}</td>
+                        <td>{{$itemDistribution->institution_name ?? '-'}}</td>
+                        <td>{{$itemDistribution->item_name ?? '-'}}</td>
+                        <td>{{$itemDistribution->item_quantity ?? '-'}}</td>
                     </tr>
                     @endforeach
-                    <tr>
-                        <td class="bg-gradient-gray">{{$moneyDonationsTotal}}</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

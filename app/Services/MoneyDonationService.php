@@ -40,4 +40,10 @@ class MoneyDonationService implements MoneyDonationServiceInterface
         $this->moneyDonationRepository->StoreMoneyDonation($dto);
     }
 
+    public function moneyDonationsCountInSpecificDuration($duration)
+    {
+        return $this->moneyDonationRepository->moneyDonationsCountInSpecificDuration($duration);
+    }
+
+
 }

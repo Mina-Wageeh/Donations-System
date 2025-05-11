@@ -7,6 +7,7 @@
                 <table class="table show-table text-center">
                     <thead>
                     <tr>
+                        <th class="col-2">المتبرع</th>
                         <th class="col-2">السلعة</th>
                         <th class="col-2">الكمية</th>
                     </tr>
@@ -14,7 +15,8 @@
                     <tbody>
                     @foreach($itemDonations as $itemDonation)
                     <tr>
-                        <td>{{$itemDonation->name ?? '-'}}</td>
+                        <td>{{$itemDonation->giver_name ?? '-'}}</td>
+                        <td>{{$itemDonation->item_name ?? '-'}}</td>
                         <td>{{$itemDonation->quantity ?? '-'}}</td>
                     </tr>
                     @endforeach

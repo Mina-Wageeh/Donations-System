@@ -5,9 +5,9 @@
     <div class="content">
         <div class="container-fluid">
             <div class="d-flex justify-content-center mb-3">
-                <a href="{{route('money.distribution.create')}}" type="button" class="btn btn-success rounded w-100 col-12">اضافة تبرع مالي جديد</a>
+                <a href="{{route('money.distribution.create')}}" type="button" class="btn btn-success rounded w-100 col-12">تحويل مبلغ مالي الي مؤسسة</a>
             </div>
-{{--            @include('dashboard.donation-money.show')--}}
+            @include('dashboard.money-distribution.show')
         </div>
     </div>
 

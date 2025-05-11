@@ -1,8 +1,8 @@
 <div class="row d-flex justify-content-center">
     <div class="col-12">
+        <input type="text" id="giver-search" class="form-control mb-3" placeholder="بحث">
         <div class="card">
             <div class="card-body table-responsive p-0">
-{{--                <table class="table text-nowrap text-center">--}}
                 <table class="table show-table text-center">
                     <thead>
                     <tr>
@@ -17,9 +17,6 @@
                         <td>{{$moneyDonation->amount ?? '-'}}</td>
                     </tr>
                     @endforeach
-                    <tr>
-                        <td class="bg-gradient-gray" colspan="2">{{$moneyDonationsTotal}}</td>
-                    </tr>
                     </tbody>
                 </table>
             </div>

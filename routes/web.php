@@ -18,10 +18,7 @@ Auth::routes();
 Route::group(['middleware'=>'auth'] , function()
 {
 
-    Route::group(['prefix'=>'/'] , function()
-    {
-        Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
-    });
+    Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::group(['prefix'=>'institutions'] , function()
     {
@@ -57,7 +54,7 @@ Route::group(['middleware'=>'auth'] , function()
         Route::post('store', [MoneyDonationController::class, 'store'])->name('donation.money.store');
     });
 
-    Route::group(['prefix'=>'items-donations'] , function()
+    Route::group(['prefix'=>'item-donations'] , function()
     {
         Route::get('/', [ItemDonationController::class, 'index'])->name('donation.item.index');
         Route::get('create', [ItemDonationController::class, 'create'])->name('donation.item.create');
@@ -68,7 +65,7 @@ Route::group(['middleware'=>'auth'] , function()
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Route::group(['prefix'=>'money-distribution'] , function()
+    Route::group(['prefix'=>'money-distributions'] , function()
     {
         Route::get('/', [MoneyDistributionController::class, 'index'])->name('money.distribution.index');
         Route::get('create', [MoneyDistributionController::class, 'create'])->name('money.distribution.create');
@@ -76,7 +73,7 @@ Route::group(['middleware'=>'auth'] , function()
 
     });
 
-    Route::group(['prefix'=>'item-distribution'] , function()
+    Route::group(['prefix'=>'item-distributions'] , function()
     {
         Route::get('/', [ItemDistributionController::class, 'index'])->name('item.distribution.index');
         Route::get('create', [ItemDistributionController::class, 'create'])->name('item.distribution.create');
@@ -84,11 +81,9 @@ Route::group(['middleware'=>'auth'] , function()
     });
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 });
 
-
-Route::get('/send-email', [EmailController::class, 'send'])->name('logout');
-
-
+Route::redirect('register' , 'login');
 
 

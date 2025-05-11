@@ -1,7 +1,6 @@
 <div class="row d-flex justify-content-center">
     <div class="col-12">
         <input type="text" id="giver-search" class="form-control mb-3" placeholder="بحث">
-
         <div class="card">
             <div class="card-body table-responsive p-0">
 {{--                <table class="table text-nowrap text-center">--}}
