@@ -12,25 +12,29 @@ use App\Repositories\Interfaces\ItemDonationRepositoryInterface;
 use App\Repositories\Interfaces\MoneyDonationRepositoryInterface;
 use App\Services\Interfaces\CheckDonationsServiceInterface;
 use App\Services\Interfaces\GiverServiceInterface;
+use App\Services\Interfaces\ItemDonationServiceInterface;
+use App\Services\Interfaces\MoneyDonationServiceInterface;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class CheckDonationsService implements CheckDonationsServiceInterface
 {
-    public function __construct()
+    public function __construct
+    (
+        private MoneyDonationServiceInterface $moneyDonationService,
+        private ItemDonationServiceInterface $itemDonationService
+    )
     {
-
     }
 
-    public function sendMail()
+    public function checkDonationsLastWeek()
     {
-        dispatch(new SendMailJob());
-    }
-
-    public function checkDonationsLastWeek($moneyDonationsCount , $itemDonationsCount)
-    {
+        $duration = Carbon::now()->subMinutes(1);
+        $moneyDonationsCount = $this->moneyDonationService->moneyDonationsCountInSpecificDuration($duration);
+        $itemDonationsCount = $this->itemDonationService->itemDonationsCountInSpecificDuration($duration);
         if ($moneyDonationsCount === 0 && $itemDonationsCount === 0)
         {
-            $this->sendMail();
+            dispatch(new SendMailJob());
         }
     }
 }

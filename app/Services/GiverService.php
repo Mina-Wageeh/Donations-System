@@ -8,6 +8,7 @@ use App\Dto\GiverDto;
 use App\Models\Giver;
 use App\Repositories\Interfaces\GiverRepositoryInterface;
 use App\Services\Interfaces\GiverServiceInterface;
+use Illuminate\Support\Collection;
 
 class GiverService implements GiverServiceInterface
 {
@@ -18,7 +19,7 @@ class GiverService implements GiverServiceInterface
         $this->giverRepository = $giverRepository;
     }
 
-    public function getAllGivers()
+    public function getAllGivers(): Collection
     {
        return $this->giverRepository->getAllGivers();
     }
@@ -40,9 +41,9 @@ class GiverService implements GiverServiceInterface
         $this->giverRepository->storeGiver($dto);
     }
 
-    public function updateDoctor($dto , $id)
+    public function updateGiver($dto , $id)
     {
-        $this->giverRepository->updateDoctor($dto , $id);
+        $this->giverRepository->updateGiver($dto , $id);
     }
 
     public function deleteGiver($id)

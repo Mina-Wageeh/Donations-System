@@ -10,3 +10,18 @@ $(document).ready(function()
         });
     });
 });
+
+$(document).ready(function()
+{
+    $('.select2').select2
+    ({
+        dir: "rtl", // لو الموقع عربي
+        allowClear: false
+    });
+
+    $('.select2').on('select2:open', function ()
+    {
+        let searchField = $('.select2-container--open .select2-search__field');
+        searchField.attr('placeholder', 'ابحث');
+    });
+});

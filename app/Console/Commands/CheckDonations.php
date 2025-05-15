@@ -15,21 +15,16 @@ class CheckDonations extends Command
 
     protected $description = 'Check if no donations (money or items) happened in the last 7 days, and email admin';
 
-    public function __construct(
+    public function __construct
+    (
         private CheckDonationsServiceInterface $checkDonationsCommandService,
-        private MoneyDonationServiceInterface $moneyDonationService,
-        private ItemDonationServiceInterface $itemDonationService
-    ) {
+    )
+    {
         parent::__construct();
     }
 
     public function handle()
     {
-        $duration = Carbon::now()->subMinutes(1);
-
-        $moneyDonationsCount = $this->moneyDonationService->moneyDonationsCountInSpecificDuration($duration);
-        $itemDonationsCount = $this->itemDonationService->itemDonationsCountInSpecificDuration($duration);
-
-        $this->checkDonationsCommandService->checkDonationsLastWeek($moneyDonationsCount , $itemDonationsCount);
+        $this->checkDonationsCommandService->checkDonationsLastWeek();
     }
 }

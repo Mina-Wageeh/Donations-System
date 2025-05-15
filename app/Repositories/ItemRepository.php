@@ -14,6 +14,11 @@ class ItemRepository implements ItemRepositoryInterface
         return Item::all();
     }
 
+    public function getGiversCount(): int
+    {
+        return Item::count();
+    }
+
     public function storeItem($data)
     {
         Item::create($data);

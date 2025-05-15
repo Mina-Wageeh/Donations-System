@@ -14,7 +14,7 @@
 
                     <div class="mb-3">
                         <label>المتبرع</label>
-                        <select class="custom-select" name="giver_id" id="giver_id_multi_select">
+                        <select class="custom-select select2" name="giver_id" id="giver_id_multi_select">
                             @foreach($givers as $giver)
                                 <option selected class="text-muted" value="{{$giver->id}}">{{$giver->name}}</option>
                             @endforeach
@@ -23,7 +23,7 @@
 
                     <div class="mb-3">
                         <label>السلعة</label>
-                        <select class="custom-select" name="item_id">
+                        <select class="custom-select select2" name="item_id">
                             @foreach($items as $item)
                                 <option selected class="text-muted" value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach

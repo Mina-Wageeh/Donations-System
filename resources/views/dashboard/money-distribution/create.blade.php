@@ -13,7 +13,7 @@
 
                     <div class="mb-3">
                         <label>المؤسسة المراد التحويل لها</label>
-                        <select class="custom-select" name="institution_id">
+                        <select class="custom-select select2" name="institution_id">
                             @foreach($institutions as $institution)
                                 <option selected class="text-muted" value="{{$institution->id}}">{{$institution->name}}</option>
                             @endforeach
@@ -24,6 +24,12 @@
                         <label>مبلغ التحويل</label>
                         <input name="amount" type="text" class="form-control" id="" placeholder="مبلغ التحويل">
                     </div>
+
+                    @if (session('warning'))
+                        <div class="alert alert-warning">
+                            {{ session('warning') }}
+                        </div>
+                    @endif
 
 
                     <button type="submit" class="btn btn-success col-md-12">تحويل</button>

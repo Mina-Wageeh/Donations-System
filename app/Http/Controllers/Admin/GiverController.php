@@ -46,7 +46,7 @@ class GiverController extends Controller
     {
         $dto = $request->getDto();
 
-        $this->giverService->updateDoctor($dto ,$id);
+        $this->giverService->updateGiver($dto ,$id);
 
         return redirect() -> route('giver.index');
     }

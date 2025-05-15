@@ -10,6 +10,7 @@ use App\Services\InstitutionService;
 use App\Services\GiverService;
 use App\Services\Interfaces\GiverServiceInterface;
 use App\Services\Interfaces\InstitutionServiceInterface;
+use App\Services\Interfaces\ItemServiceInterface;
 use App\Services\Interfaces\MoneyDistributionServiceInterface;
 use App\Services\Interfaces\MoneyDonationServiceInterface;
 use App\Services\MoneyDonationService;
@@ -19,6 +20,7 @@ class DashboardController extends Controller
 {
     public $institutionService;
     public $giverService;
+    public $itemService;
     public $moneyDonationsService;
     public $moneyDistributionsService;
 
@@ -26,12 +28,14 @@ class DashboardController extends Controller
     (
         InstitutionServiceInterface $institutionService,
         GiverServiceInterface $giverService,
+        ItemServiceInterface $itemService,
         MoneyDonationServiceInterface $moneyDonationsService,
         MoneyDistributionServiceInterface $moneyDistributionService,
     )
     {
         $this->institutionService = $institutionService;
         $this->giverService = $giverService;
+        $this->itemService = $itemService;
         $this->moneyDonationsService = $moneyDonationsService;
         $this->moneyDistributionsService = $moneyDistributionService;
     }
@@ -40,9 +44,10 @@ class DashboardController extends Controller
     {
         $institutionsCount = $this->institutionService->getInstitutionsCount();
         $giversCount = $this->giverService->getGiversCount();
+        $itemsCount = $this->itemService->getGiversCount();
         $totalMoneyDonations = $this->moneyDonationsService->getTotalMoneyDonations();
         $totalMoneyDistributions = $this->moneyDistributionsService->getTotalMoneyDistributions();
-        return view('dashboard.index' , compact(['institutionsCount' , 'giversCount' , 'totalMoneyDonations' , 'totalMoneyDistributions']));
+        return view('dashboard.index' , compact(['institutionsCount' , 'giversCount' , 'totalMoneyDonations' , 'totalMoneyDistributions' , 'itemsCount']));
     }
 
     public function redirectToDashboard()

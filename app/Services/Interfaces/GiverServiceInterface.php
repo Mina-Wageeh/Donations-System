@@ -18,6 +18,6 @@ interface GiverServiceInterface
 
     public function deleteGiver($id);
 
-    public function updateDoctor(GiverDto $dto , $id);
+    public function updateGiver(GiverDto $dto , $id);
 
 }

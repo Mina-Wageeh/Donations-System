@@ -5,10 +5,11 @@ namespace App\Repositories\Interfaces;
 
 
 use App\Dto\GiverDto;
+use Illuminate\Support\Collection;
 
 interface GiverRepositoryInterface
 {
-    public function getAllGivers();
+    public function getAllGivers(): Collection;
 
     public function getGiversCount();
 
@@ -16,5 +17,5 @@ interface GiverRepositoryInterface
 
     public function getGiverById($id);
 
-    public function updateDoctor(GiverDto $dto , $id);
+    public function updateGiver(GiverDto $dto , int $id);
 }

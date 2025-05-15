@@ -25,6 +25,11 @@ class ItemService implements ItemServiceInterface
         return $this->itemRepository->getItems();
     }
 
+    public function getGiversCount(): int
+    {
+        return $this->itemRepository->getGiversCount();
+    }
+
     public function storeItem($data)
     {
         $this->itemRepository->storeItem($data);

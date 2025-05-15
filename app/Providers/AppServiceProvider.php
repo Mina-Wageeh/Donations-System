@@ -34,6 +34,7 @@ use App\Services\ItemDonationService;
 use App\Services\ItemService;
 use App\Services\MoneyDistributionService;
 use App\Services\MoneyDonationService;
+use App\Services\NotificationService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

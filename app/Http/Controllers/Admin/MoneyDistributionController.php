@@ -52,8 +52,9 @@ class MoneyDistributionController extends Controller
         if ($totalDistributed < $totalDonations)
         {
             $this->moneyDistributionService->StoreMoneyDistribution($dto);
+            return redirect()->route('money.distribution.index');
         }
 
-        return redirect()->route('money.distribution.index');
+        return redirect()->back()->with('warning', 'المال الحالي غير كافي للتوزيع');
     }
 }

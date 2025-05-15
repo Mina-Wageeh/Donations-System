@@ -44,7 +44,7 @@
                 <div class="small-box bg-warning">
                     <div class="inner">
                         <h4>عدد السلع</h4>
-                        <h3>{{$giversCount}}</h3>
+                        <h3>{{$itemsCount}}</h3>
                     </div>
                     <a href="#" class="small-box-footer">المزيد</a>
                 </div>

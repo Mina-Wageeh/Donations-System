@@ -5,31 +5,31 @@ namespace App\Repositories;
 use App\Dto\InstitutionDto;
 use App\Models\Institution;
 use App\Repositories\Interfaces\InstitutionRepositoryInterface;
+use Illuminate\Support\Collection;
 
 class InstitutionRepository implements InstitutionRepositoryInterface
 {
-    public function getInstitutions()
+    public function getInstitutions(): Collection
     {
         return Institution::all();
     }
 
-    public function getInstitutionByID($id)
+    public function getInstitutionByID($id): ?Institution
     {
         return Institution::find($id);
     }
 
-
-    public function getInstitutionsCount()
+    public function getInstitutionsCount(): int
     {
         return Institution::count();
     }
 
-    public function storeInstitution(InstitutionDto $dto)
+    public function storeInstitution(InstitutionDto $dto): Institution
     {
         return Institution::create($dto->toArray());
     }
 
-    public function updateInstitution(InstitutionDto $dto , $id)
+    public function updateInstitution(InstitutionDto $dto , $id): Institution
     {
         $institution = $this->getInstitutionByID($id);
         if($institution)
@@ -38,7 +38,7 @@ class InstitutionRepository implements InstitutionRepositoryInterface
         }
     }
 
-    public function deleteInstitution($id)
+    public function deleteInstitution($id): void
     {
         $institution = $this->getInstitutionByID($id);
 

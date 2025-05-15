@@ -17,16 +17,11 @@ class SendMailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public NotificationServiceInterface $notification;
+    private NotificationServiceInterface $notification;
 
-    public function __construct(NotificationServiceInterface $notification)
+    public function handle(NotificationServiceInterface $notification)
     {
         $this->notification = $notification;
-    }
-
-    public function handle()
-    {
-        Mail::to('admin@admin.com')->send(new CheckDonationsMail());
-//        $this->notification->sendMail();
+        $this->notification->sendMail();
     }
 }

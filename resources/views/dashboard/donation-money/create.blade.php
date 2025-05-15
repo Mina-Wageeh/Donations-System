@@ -13,7 +13,6 @@
 
                     <div class="mb-3">
                         <label for="giver-select">المتبرع</label>
-
                         <select class="form-control select2" name="giver_id" id="giver-select">
                             @foreach($givers as $giver)
                                 <option value="{{$giver->id}}">{{$giver->name}}</option>
@@ -25,6 +24,12 @@
                         <label>مبلغ التبرع</label>
                         <input name="amount" type="text" class="form-control" id="" placeholder="مبلغ التبرع">
                     </div>
+
+                    @if (session('warning'))
+                        <div class="alert alert-warning">
+                            {{ session('warning') }}
+                        </div>
+                    @endif
 
 
                     <button type="submit" class="btn btn-success col-md-12">اضافة</button>
@@ -39,19 +44,6 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function()
-        {
-            $('.select2').select2
-            ({
-                dir: "rtl", // لو الموقع عربي
-                allowClear: false
-            });
 
-            $('.select2').on('select2:open', function ()
-            {
-                let searchField = $('.select2-container--open .select2-search__field');
-                searchField.attr('placeholder', 'ابحث هنا...');
-            });
-        });
     </script>
 @endsection

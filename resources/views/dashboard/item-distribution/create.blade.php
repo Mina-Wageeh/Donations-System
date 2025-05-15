@@ -13,7 +13,7 @@
 
                     <div class="mb-3">
                         <label>المؤسسة المراد التحويل لها</label>
-                        <select class="custom-select" name="institution_id">
+                        <select class="custom-select select2" name="institution_id">
                             @foreach($institutions as $institution)
                                 <option selected class="text-muted" value="{{$institution->id}}">{{$institution->name}}</option>
                             @endforeach
@@ -22,7 +22,7 @@
 
                     <div class="mb-3">
                         <label>السلعة</label>
-                        <select class="custom-select" name="item_id">
+                        <select class="custom-select select2" name="item_id">
                             @foreach($items as $item)
                                 <option selected class="text-muted" value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
@@ -33,6 +33,12 @@
                         <label>الكمية</label>
                         <input name="quantity" type="text" class="form-control" id="" placeholder="الكمية">
                     </div>
+
+                    @if (session('warning'))
+                        <div class="alert alert-warning">
+                            {{ session('warning') }}
+                        </div>
+                    @endif
 
                     <button type="submit" class="btn btn-success col-md-12">تحويل</button>
                 </form>

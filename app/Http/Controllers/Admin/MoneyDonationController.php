@@ -25,7 +25,6 @@ class MoneyDonationController extends Controller
 
     public function index()
     {
-//        $moneyDonations = $this->moneyDonationService->getMoneyDonations();
         $moneyDonations = $this->moneyDonationService->getMoneyDonationsWithGivers();
         $moneyDonationsTotal = $this->moneyDonationService->getTotalMoneyDonations();
 

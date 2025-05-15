@@ -40,16 +40,27 @@ class ItemDistributionController extends Controller
     {
         $dto = $request->getDto();
 
-        $this->itemDistributionService->StoreItemDistribution($dto);
-
         $item = $this->itemService->getItemByID($request->item_id);
         $org = $item->quantity;
 
-        $item->update
-        ([
-            'quantity' => $org - $request->quantity,
-        ]);
+        $distributedAmount = $request->quantity;
 
-        return redirect()->route('item.distribution.index');
+        if ($distributedAmount < $org)
+        {
+            $this->itemDistributionService->StoreItemDistribution($dto);
+
+            $item->update
+            ([
+                'quantity' => $org - $request->quantity,
+            ]);
+
+            return redirect()->route('item.distribution.index');
+        }
+        else
+        {
+            return redirect()->back()->with('warning', 'الكمية المتاحة غير كافية للتوزيع.');
+        }
+
+
     }
 }
